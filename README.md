@@ -1,6 +1,6 @@
 # CircleCi Status
 
-[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/Fadykhallaf/cloud-devops-capstone/27/workflows/faf3a87d-3cf0-4ee5-92f9-16ca84cc29c0)
+[![CircleCI](https://circleci.com/gh/circleci/circleci-docs.svg?style=svg)](https://app.circleci.com/pipelines/github/sarasalem2410/capstone-project)
 
 ## Project Overview
 
@@ -24,7 +24,7 @@ In this step I built my docker image and pushed it the dockerhub
 ``` yaml
 docker build --tag=capstone .
 docker images ls
-dockerpath="fadykhallaf/capstone:latest"
+dockerpath="sarasalem2410/capstone-project"
 docker tag capstone:latest $dockerpath
 echo "Docker ID and Image: $dockerpath"
 echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
