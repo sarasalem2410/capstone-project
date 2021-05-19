@@ -13,7 +13,6 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "requirements.txt" }}
-            # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
       - run:
           name: install dependencies
@@ -111,26 +110,8 @@ workflows:
              aws-region: us-west-2
              requires:
                - aws-eks/create-cluster
-          # - aws-eks/update-container-image:
-          #     cluster-name: capstone
-          #     aws-region: us-east-1
-          #     container-image-updates: 'capstone=capstone:latest'
-          #     post-steps:
-          #       - kubernetes/delete-resource:
-          #           resource-names: cloud-devops-capstone
-          #           resource-types: deployment
-          #           wait: true
-          #     record: true
-          #     requires:
-          #      - create-deployment
-          #     resource-name: deployment/cloud-devops-capstone
           - test-cluster:
               cluster-name: capstone
               aws-region: us-west-2
               requires:
                 - create-deployment
-          # - aws-eks/delete-cluster:
-          #     cluster-name: capstone
-          #     aws-region: us-east-1
-          #     requires:
-          #       - test-cluster
